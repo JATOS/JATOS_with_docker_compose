@@ -25,7 +25,7 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      # If you have a base path (if you set 'jatos.urlBasePath') you have to add the path here
+      # If you have a base path (if you set 'jatos.urlBasePath') you have to change the URL path here
       test: ["CMD", "curl", "-f", "http://localhost:9000/ping"]
       interval: 2s
       timeout: 2s
@@ -39,9 +39,9 @@ services:
       JATOS_SECRET: 'my-secret-secret'
     command:
       # If you're running multiple JATOS instances
-      #- '-Djatos.multiNode=true'
+      - '-Djatos.multiNode=true'
       # Get JATOS' logs to the stdout, e.g. for debugging
-      #- '-Djatos.logs.appender=ASYNCSTDOUT'
+      - '-Djatos.logs.appender=ASYNCSTDOUT'
     volumes:
       - jatos-logs:/opt/jatos/logs
       - jatos-data:/opt/jatos_data
@@ -63,7 +63,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'abc123'
     command:
       # Deactivate MySQL's binary log (https://www.jatos.org/JATOS-with-MySQL.html)
-      #- '--skip-log-bin'
+      - '--skip-log-bin'
     cap_add:
       # Fix "mbind: Operation not permitted" (https://stackoverflow.com/q/55559386/1278769)
       - SYS_NICE
