@@ -45,8 +45,8 @@ services:
     volumes:
       - jatos-logs:/opt/jatos/logs
       - jatos-data:/opt/jatos_data
-      # Load a production.conf
-      #- ./jatos.conf:/opt/docker/conf/production.conf:ro
+      # Configure JATOS by binding a production.conf
+      - ./jatos.conf:/opt/jatos/conf/jatos.conf:ro
 
   db:
     image: mysql:8.0.32-debian
