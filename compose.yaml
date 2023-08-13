@@ -45,7 +45,7 @@ services:
     volumes:
       - jatos-logs:/opt/jatos/logs
       - jatos-data:/opt/jatos_data
-      # Configure JATOS by binding a production.conf
+      # Configure JATOS by binding a jatos.conf
       - ./jatos.conf:/opt/jatos/conf/jatos.conf:ro
 
   db:
