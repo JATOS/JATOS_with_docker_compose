@@ -39,7 +39,7 @@ services:
       JATOS_SECRET: 'my-secret-secret'
     command:
       # If you're running multiple JATOS instances
-      - '-Djatos.multiNode=true'
+      #- '-Djatos.multiNode=true'
       # Get JATOS' logs to the stdout, e.g. for debugging
       #- '-Djatos.logs.appender=ASYNCSTDOUT'
     volumes:
